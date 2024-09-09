@@ -1,0 +1,119 @@
+.tawfeer-settings {
+	&__card {
+		&.tawfeer-card.tawfeer-action-card {
+			.tawfeer-action-card__region-top {
+				padding: 32px 32px 16px;
+			}
+
+			.tawfeer-action-card__region-children {
+				padding: 0 32px 32px;
+
+				> .tawfeer-grid {
+					margin: 0;
+				}
+			}
+
+			.tawfeer-action-card__notification {
+				padding-bottom: 16px;
+			}
+		}
+
+		.tawfeer-form-token-field {
+			margin: 0;
+
+			.components-form-token-field {
+				width: 100%;
+			}
+		}
+
+		.tawfeer-settings__section {
+			&__title {
+				align-items: center;
+				display: flex;
+				margin: 0;
+
+				span {
+					line-height: 24px;
+				}
+			}
+			&__content {
+				> div,
+				.tawfeer-settings__min-max {
+					margin: 0;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					flex-wrap: wrap;
+					> *:not([class*="help"], [class*="label"]) {
+						margin: 0;
+					}
+				}
+				.tawfeer-autocomplete-tokenfield,
+				.tawfeer-settings__min-max {
+					width: 100%;
+				}
+				.tawfeer-autocomplete-tokenfield {
+					display: block;
+					margin: 0;
+
+					label:empty {
+						display: none;
+					}
+				}
+				.tawfeer-text-control,
+				.tawfeer-checkbox-control {
+					margin: 0 !important;
+				}
+				.tawfeer-select-control {
+					.components-base-control {
+						width: 100%;
+					}
+				}
+			}
+		}
+		.tawfeer-settings__min-max {
+			gap: 8px;
+
+			.tawfeer-checkbox-control {
+				flex: 0 0 auto;
+			}
+
+			.tawfeer-text-control {
+				flex: 1 1 auto;
+
+				.components-text-control__input {
+					text-align: right;
+				}
+			}
+
+			+ .tawfeer-settings__min-max {
+				margin-top: 16px !important;
+			}
+		}
+	}
+
+	&__no-border {
+		&.tawfeer-card.tawfeer-action-card {
+			border: 0;
+
+			.tawfeer-action-card__region-top,
+			.tawfeer-action-card__region-children {
+				padding-left: 0;
+				padding-right: 0;
+				padding-top: 0;
+			}
+
+			.tawfeer-action-card__region-children {
+				padding-bottom: 0;
+			}
+
+			.tawfeer-action-card__notification {
+				padding-bottom: 16px;
+			}
+
+			& + & {
+				margin-top: 64px;
+			}
+		}
+	}
+}

@@ -1,0 +1,72 @@
+/**
+ * Plugin Installer
+ */
+
+@use "~@wordpress/base-styles/colors" as wp-colors;
+
+.tawfeer-card {
+	.tawfeer-plugin-installer__status {
+		align-items: center;
+		display: flex;
+
+		.tawfeer-checkbox-icon {
+			margin-left: 4px;
+
+			svg {
+				height: inherit;
+				width: inherit;
+			}
+		}
+	}
+
+	&.tawfeer-plugin-installer__status-active,
+	&.tawfeer-plugin-installer__status-error,
+	&.tawfeer-plugin-installer__status-installing,
+	&.tawfeer-plugin-installer__status-none {
+		.tawfeer-action-card__region-top {
+			padding-left: 28px;
+		}
+
+		&.is-small {
+			.tawfeer-action-card__region-top {
+				padding-left: 20px;
+			}
+		}
+	}
+
+	&.tawfeer-plugin-installer__status-active {
+		box-shadow: inset 4px 0 0 wp-colors.$alert-green;
+
+		.tawfeer-plugin-installer__checkbox {
+			background: wp-colors.$alert-green;
+			box-shadow: none;
+		}
+
+		svg {
+			fill: white;
+		}
+	}
+
+	&.tawfeer-plugin-installer__status-error {
+		box-shadow: inset 4px 0 0 wp-colors.$alert-red;
+	}
+
+	&.tawfeer-plugin-installer__status-installing,
+	&.tawfeer-plugin-installer__status-none {
+		box-shadow: inset 4px 0 0 wp-colors.$gray-100;
+	}
+
+	// Is Small
+	&.is-small {
+		.tawfeer-plugin-installer__status {
+			.tawfeer-checkbox-icon {
+				height: 16px;
+				width: 16px;
+			}
+		}
+	}
+}
+
+.tawfeer-plugin-installer_is-waiting {
+	display: flex;
+}
