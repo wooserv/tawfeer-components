@@ -1,6 +1,6 @@
 {
 	"name": "@tawfeer/components",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Tawfeer design system components",
 	"author": "WooServ Team",
 	"license": "GPL-2.0-or-later",
@@ -41,6 +41,7 @@
 		"@babel/preset-env": "^7.24.7",
 		"@babel/preset-react": "^7.24.7",
 		"@babel/preset-typescript": "^7.24.7",
+		"@tawfeer/scripts": "github:wooserv/tawfeer-scripts",
 		"recursive-copy": "^2.0.0"
 	},
 	"babel": {

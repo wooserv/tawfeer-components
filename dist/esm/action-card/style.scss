@@ -1,0 +1,483 @@
+/**
+ * Action Card
+ */
+
+@use "sass:color";
+@use "~@wordpress/base-styles/colors" as wp-colors;
+
+.tawfeer-card.tawfeer-action-card {
+	padding: 0;
+	border-color: wp-colors.$gray-300;
+
+	// Clickable
+
+	&.tawfeer-card--is-clickable {
+		transition: box-shadow 125ms ease-in-out;
+
+		&:hover {
+			box-shadow: 0 4px 8px rgba(black, 0.08);
+		}
+	}
+
+	// Status
+
+	&.tawfeer-card__is-disabled,
+	&.tawfeer-card__is-primary,
+	&.tawfeer-card__is-secondary,
+	&.tawfeer-card__is-supported,
+	&.tawfeer-card__is-unsupported {
+		box-shadow: inset 4px 0 0 wp-colors.$gray-100;
+
+		.tawfeer-action-card__region-top {
+			padding-left: 28px;
+		}
+	}
+
+	&.tawfeer-card__is-primary {
+		box-shadow: inset 4px 0 0 var(--wp-admin-theme-color);
+	}
+
+	&.tawfeer-card__is-secondary {
+		box-shadow: inset 4px 0 0 wp-colors.$alert-yellow;
+	}
+
+	&.tawfeer-card__is-supported {
+		box-shadow: inset 4px 0 0 wp-colors.$alert-green;
+	}
+
+	&.tawfeer-card__is-unsupported {
+		box-shadow: inset 4px 0 0 wp-colors.$alert-red;
+	}
+
+	// Small
+	&.is-small {
+		.tawfeer-action-card__region-top {
+			padding: 8px 16px;
+
+			.components-toggle-control {
+				margin-bottom: 16px;
+
+				@media screen and ( min-width: 744px ) {
+					margin-bottom: 0;
+					margin-right: 16px;
+				}
+			}
+		}
+
+		h2 {
+			font-size: 14px;
+		}
+
+		p,
+		.tawfeer-action-card__region-right,
+		.tawfeer-action-card__primary_button {
+			font-size: 12px;
+			line-height: 16px;
+		}
+
+		code {
+			padding: 0 4px;
+		}
+
+		& + & {
+			margin-top: -16px;
+		}
+
+		&.mv0 {
+			border-left-color: wp-colors.$gray-300;
+			border-radius: 0;
+			border-right-color: wp-colors.$gray-300;
+
+			&:first-of-type {
+				border-top-color: wp-colors.$gray-300;
+				border-top-left-radius: 3px;
+				border-top-right-radius: 3px;
+			}
+
+			&:last-of-type {
+				border-bottom-color: wp-colors.$gray-300;
+				border-bottom-left-radius: 3px;
+				border-bottom-right-radius: 3px;
+			}
+
+			& + & {
+				margin-top: -1px;
+			}
+		}
+
+		&.tawfeer-card__is-disabled,
+		&.tawfeer-card__is-primary,
+		&.tawfeer-card__is-secondary,
+		&.tawfeer-card__is-supported,
+		&.tawfeer-card__is-unsupported {
+			.tawfeer-action-card__region-top {
+				padding-left: 20px;
+			}
+		}
+	}
+
+	// Medium
+
+	&.is-medium {
+		.tawfeer-action-card__region-top {
+			padding: 16px;
+
+			.components-toggle-control {
+				margin-bottom: 16px;
+
+				@media screen and ( min-width: 744px ) {
+					margin-bottom: 0;
+					margin-right: 16px;
+				}
+			}
+		}
+
+		.tawfeer-action-card__region-left {
+			margin-bottom: 16px;
+
+			@media screen and ( min-width: 744px ) {
+				margin-bottom: 0;
+				margin-right: 16px;
+			}
+		}
+
+		.tawfeer-action-card__region-children {
+			padding: 0 32px 32px;
+		}
+	}
+
+	// Nested children
+
+	&.tawfeer-card--has-children {
+		.tawfeer-action-card {
+			&:first-child {
+				margin-top: 32px;
+			}
+
+			+ .tawfeer-action-card {
+				margin-top: 16px !important;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	// Has grey header
+
+	&.tawfeer-card--has-grey-header {
+		overflow: hidden;
+
+		&.tawfeer-card--has-children {
+			.tawfeer-action-card__region-top {
+				border-bottom: 1px solid wp-colors.$gray-300;
+			}
+
+			.is-small > .tawfeer-action-card__region-top {
+				padding-bottom: 8px;
+				padding-top: 8px;
+			}
+		}
+
+		.tawfeer-action-card__region-top {
+			background-color: rgba(black, 0.025);
+		}
+
+		.tawfeer-action-card__region-center {
+			p {
+				color: color.adjust(wp-colors.$gray-700, $lightness: -0.75%);
+			}
+		}
+	}
+
+	&.tawfeer-card--has-white-header {
+		.tawfeer-action-card__region-top {
+			background-color: transparent;
+			border: none !important;
+		}
+	}
+
+	// Indent
+
+	&.tawfeer-card--indent {
+		margin-left: 56px;
+		position: relative;
+
+		&::before {
+			border: 0 solid wp-colors.$gray-300;
+			border-left-width: 1px;
+			border-bottom-width: 1px;
+			border-radius: 0 0 0 2px;
+			content: "";
+			display: block;
+			position: absolute;
+			inset: -17px 100% 50% -28px;
+		}
+	}
+
+	// Typography
+
+	h2,
+	p:not([class*="components-base-control"]) {
+		margin: 0;
+		max-width: 100%;
+		width: 100%;
+	}
+
+	h2 {
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+		margin-right: -8px;
+
+		.tawfeer-action-card__title {
+			margin-right: 8px;
+		}
+
+		a {
+			color: inherit;
+			text-decoration: none;
+
+			&:active,
+			&:focus,
+			&:hover {
+				color: var(--wp-admin-theme-color);
+			}
+		}
+	}
+
+	// Regions
+
+	.tawfeer-action-card__region {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		margin: 0;
+	}
+
+	.tawfeer-action-card__region-top {
+		padding: 24px;
+		display: block;
+
+		@media screen and ( min-width: 744px ) {
+			display: flex;
+		}
+
+		// Toggle Control
+		.components-toggle-control {
+			margin-bottom: 24px;
+			margin-top: 0;
+
+			@media screen and ( min-width: 744px ) {
+				margin-bottom: 0;
+				margin-right: 24px;
+			}
+
+			.components-base-control__field {
+				margin-bottom: 0;
+			}
+
+			.components-form-toggle {
+				display: flex;
+				margin: 0;
+			}
+		}
+	}
+
+	.tawfeer-action-card__region-children {
+		padding: 0 24px 24px;
+
+		&__inner {
+			padding-top: 32px;
+
+			> *:first-child {
+				margin-top: 0 !important;
+			}
+
+			> *:last-child {
+				margin-bottom: 0 !important;
+			}
+		}
+
+		.tawfeer-section-header {
+			margin: 32px 0 16px;
+		}
+
+		.tawfeer-card,
+		.tawfeer-checkbox-control,
+		.tawfeer-grid,
+		.tawfeer-text-control,
+		.tawfeer-toggle-control {
+			margin: 16px 0;
+		}
+	}
+
+	.tawfeer-action-card__region-left {
+		margin-bottom: 24px;
+
+		@media screen and ( min-width: 744px ) {
+			margin-bottom: 0;
+			margin-right: 24px;
+		}
+	}
+
+	.tawfeer-action-card__region-center {
+		align-items: flex-start;
+		flex: 1 1 auto;
+		flex-wrap: wrap;
+
+		.tawfeer-grid {
+			width: 100%;
+		}
+
+		p {
+			color: wp-colors.$gray-700;
+		}
+	}
+
+	.tawfeer-action-card__region-right {
+		align-items: flex-start;
+		flex: 0 0 auto;
+		flex-direction: column;
+		margin-top: 24px;
+		text-align: right;
+
+		@media screen and ( min-width: 744px ) {
+			align-items: flex-end;
+			flex-direction: column;
+			margin-left: 24px;
+			margin-top: 0;
+		}
+
+		> * {
+			text-align: inherit;
+		}
+
+		.tawfeer-action-card__secondary_button {
+			margin-top: 8px;
+		}
+	}
+
+	// Waiting
+
+	.tawfeer-action-card__container {
+		display: flex;
+	}
+
+	// Notifications
+
+	.tawfeer-action-card__notification {
+		.tawfeer-notice {
+			margin: 0;
+
+			&__heading {
+				margin-top: 0;
+			}
+		}
+
+		&.tawfeer-action-card__region-children {
+			.tawfeer-notice {
+				margin-top: 32px;
+			}
+		}
+	}
+
+	// Image
+
+	.tawfeer-action-card__image {
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		border-radius: 50%;
+		height: 48px;
+		width: 48px;
+	}
+
+	// Icon
+
+	.tawfeer_plugin-installer__icon {
+		margin: 0;
+	}
+
+	// Badge
+
+	.tawfeer-action-card__badge {
+		background: wp-colors.$gray-100;
+		border-radius: 2px;
+		color: wp-colors.$gray-900;
+		display: block;
+		flex: 0 0 auto;
+		font-size: 10px;
+		font-weight: bold;
+		line-height: 1.4;
+		margin: 0 8px 0 0;
+		padding: 2px 8px;
+		text-transform: uppercase;
+
+		+ .tawfeer-action-card__badge {
+			margin-left: -4px;
+		}
+	}
+
+	// Description Card
+
+	&.tawfeer-description-card {
+		font-style: italic;
+	}
+
+	// Expandable card children
+
+	&.is-expandable {
+		.tawfeer-action-card__title .components-button.is-link {
+			color: inherit;
+			font-size: inherit;
+			font-weight: inherit;
+			text-decoration: inherit;
+		}
+
+		.tawfeer-action-card__region-children {
+			border-top: 1px solid wp-colors.$gray-100;
+			padding-top: 24px;
+		}
+
+		&.is-medium .tawfeer-action-card__region-children {
+			padding-top: 32px;
+		}
+
+		&.has-checkbox {
+			.tawfeer-action-card__region-children {
+				padding-left: 72px;
+			}
+
+			&.is-small .tawfeer-action-card__region-children {
+				padding-left: 64px;
+			}
+
+			&.is-medium .tawfeer-action-card__region-children {
+				padding-left: 56px;
+			}
+		}
+	}
+
+	// Action content with multiple buttons
+	&.has-action-content .tawfeer-action-card__region-right {
+		flex-direction: row;
+
+		.components-button + .components-button {
+			margin-left: 8px;
+		}
+	}
+
+	// Multiple Cards
+
+	& + & {
+		margin-top: -16px;
+	}
+}
+
+.tawfeer-card {
+	.tawfeer-card.tawfeer-action-card {
+		border: 1px solid wp-colors.$gray-200;
+	}
+}
